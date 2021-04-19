@@ -29,7 +29,11 @@ QGIS will let you know if it was successful, and some posiview panels will show 
 
 ![QGIS desktop](kph-positions-qgis-images/posiview-installed.jpg)
 
-Exit the plugin manager. Back in QGIS, click the 'Enable PosiView' icon.
+Exit the plugin manager.
+
+## Configure PosiView for Kronprins Haakon
+
+QGIS should now show a PosiView toolbar - it might be in a slightly different place on your window. Once found, click the 'Enable PosiView' icon.
 
 ![Enable posiview](kph-positions-qgis-images/enable-posiview.jpg)
 
@@ -43,10 +47,25 @@ First set up a data provider. This is where your data source is configured. Crea
 
 **Click 'apply' after every change you want to keep**
 
-Next set up a marker. This will be shown on the map once position data are available.
+Next set up a marker. This will be shown on the map once position data are available. Again press the green + to make a new one, and click apply after your changes. Here - just experiment to see what looks good on your map!
 
 ![Set up a marker](kph-positions-qgis-images/posiview-vehiclesettings.jpg)
 
+That's all you need to get going. Click OK to get out of the PosiView dialogue box and get back to QGIS.
+
+To start tracking, click the `start tracking` button in the PosiView Toolbar:
+
+![Start tracking](kph-positions-qgis-images/start-tracking.jpg)
+
+If you are on *Kronprins Haakon* plugged into the network this should show the vehicle icon you configured on your map view. If not, it will result in an error message.
+
+### Things that might go wrong
+
+If nothing shows up on the ship, check that:
+- your provider is configured correctly. The settings shown here are copied from a working configuration on Q1, themselves a copied from the installation used by bridge crew. They should just work...
+- you selected the correct provider in your vehicle marker settings
+- you are plugged into the wired KPH network
+- your windows firewall allows network traffic on port 5000
 
 
 ## Adding map data
@@ -59,20 +78,21 @@ On Kronprins Haakon, I will set up a folder called 'QGISdata' in fjelles. There 
 
 All of these files can be dragged and dropped into your QGIS map window.
 
-### Setup
-
-Here is how I have my desktop for making maps:
-
-
-![QGIS desktop](kph-positions-qgis-images/new-project.jpg)
-
 ### Adding an ocean floor layer
 
 Drag and drop `gebco-ibcaov4.tiff` into your map window.'
 
 Set the map projection to NSIDC North Polar stereographic:
 
-If you want north to be up, use the `rotation` setting - much faster than reprojecting the map.
+If you want north to be up, use the `rotation` setting - much faster than reprojecting the map:
+
+![seafloor](kph-positions-qgis-images/rotated-ibcao-gebco-npolarstereo.jpg)
+
+### Adding the marine boundary
+
+Same as P stations - drag and drop the geojson file, style as you see fit. It has no labels:
+
+![P stations](kph-positions-qgis-images/added-marineboundary.jpg)
 
 ### Adding Nansen Legacy P stations
 
@@ -80,11 +100,28 @@ Drag and drop P1-P7.geojson into the map window.
 
 Display labels if you want to:
 
+![P stations](kph-positions-qgis-images/pstations-labelled.jpg)
 
-### Adding the marine boundary
+### It is still an ugly map...
 
-Same as P stations - drag and drop the geojson file, style as you see fit. It has no labels
+yes, land masses are just weird white blobs. Natural Earth polygons can help - so we will add some. Press ctrl+shift+v to open the 'add vector layer' dialog and navigate to where we have the data (on the ship, likely in `fjelles\QGISdata\naturalearth`) and select the file ending in `.shp`:
 
-## Useful parts
+![get just the shp](kph-positions-qgis-images/natural-earth-shapefile.jpg)
 
-**ctrl-shift-f** is a keyboard shortcut for toggling full window map display. If you want to quickly drop all the menus and toolbaors from view and just see the map, use this. Be aware that sometimes it forgets to re-display all the toolbars and panes you had open before.
+ ...and then style it a bit - in the layer styling panel to the right you can see the settings used here:
+
+ ![prettified](kph-positions-qgis-images/added-natural-earth.jpg)
+
+
+## Summary
+
+Hopefully this is enough information to help you get live positions from *FF Kronprins Haakon* while underway, so you can create awesome maps with your own data and figure out where we are in relation to stuff you're interested in.
+
+Once we get on board, feel free to track me down and ask questions if it isn't working for you.
+
+
+### Random useful tips
+
+**ctrl-shift-f** is a keyboard shortcut for toggling full window map display. If you want to quickly drop all the menus and toolbars from view and just see the map or show it on your full screen without clutter, use this. Be aware that sometimes it forgets to re-display all the toolbars and panels you had open before.
+
+**you can zoom to a layer** by right clicking any layer in the layer panel and selecting 'zoom to extent'. Super useful for focussing a work area.
