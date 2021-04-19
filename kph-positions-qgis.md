@@ -19,16 +19,34 @@ This requires local adminstrator rights on your computer, hopefully you have tho
 
 PosiView can be installed using the QGIS plugin manager. Head to 'plugins -> manage and install plugins'
 
-
+![QGIS desktop](kph-positions-qgis-images/select-plugins.jpg)
 
 Search for PosiView, and press 'install'.
 
+![QGIS desktop](kph-positions-qgis-images/select-posiview.jpg)
 
-Back in QGIS, click the PosiView icon.
+QGIS will let you know if it was successful, and some posiview panels will show up:
 
-Next click the 'configure PosiView' icon.
+![QGIS desktop](kph-positions-qgis-images/posiview-installed.jpg)
 
-First set up a provider.
+Exit the plugin manager. Back in QGIS, click the 'Enable PosiView' icon.
+
+![Enable posiview](kph-positions-qgis-images/enable-posiview.jpg)
+
+Some new icons will appear in the posiview toolbar. Click the 'configure PosiView' icon:
+
+![Configure posiview](kph-positions-qgis-images/click-configureposiview.jpg)
+
+First set up a data provider. This is where your data source is configured. Create a new one by clicking the green plus icon, then configure it as shown:
+
+![Set up a provider](kph-positions-qgis-images/kph-dataprovidersettings.jpg)
+
+**Click 'apply' after every change you want to keep**
+
+Next set up a marker. This will be shown on the map once position data are available.
+
+![Set up a marker](kph-positions-qgis-images/posiview-vehiclesettings.jpg)
+
 
 
 ## Adding map data
@@ -44,6 +62,9 @@ All of these files can be dragged and dropped into your QGIS map window.
 ### Setup
 
 Here is how I have my desktop for making maps:
+
+
+![QGIS desktop](kph-positions-qgis-images/new-project.jpg)
 
 ### Adding an ocean floor layer
 
