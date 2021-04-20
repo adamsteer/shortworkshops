@@ -78,6 +78,9 @@ On Kronprins Haakon, I will set up a folder called 'QGISdata' in fjelles. There 
 
 All of these files can be dragged and dropped into your QGIS map window.
 
+P station position and marine boundary positions are here in the `kph-map-data` in this repository
+
+
 ### Adding an ocean floor layer
 
 Drag and drop `gebco-ibcaov4.tiff` into your map window.'
