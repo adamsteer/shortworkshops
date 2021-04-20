@@ -83,17 +83,19 @@ P station position and marine boundary positions are here in the `kph-map-data` 
 
 ### Adding an ocean floor layer
 
-Drag and drop `gebco-ibcaov4.tiff` into your map window.'
+Download the ocean floor data here: https://www.naturalearthdata.com/downloads/10m-raster-data/10m-ocean-bottom/
 
-Set the map projection to NSIDC North Polar stereographic:
+Unzip the downloaded file, then drag and drop `OB_LR.tif` into the map window:
 
-If you want north to be up, use the `rotation` setting - much faster than reprojecting the map:
+![seafloor](kph-positions-qgis-images/NE-oceanbottom.jpg)
+
+On KPH a styled bathymetry image called `gebco-ibcaov4.tiff` will be available. It is really big, and hard to transform - so set the map projection to NSIDC North Polar stereographic. If you want north to be up, use the `rotation` setting - much faster than reprojecting the map:
 
 ![seafloor](kph-positions-qgis-images/rotated-ibcao-gebco-npolarstereo.jpg)
 
 ### Adding the marine boundary
 
-Same as P stations - drag and drop the geojson file, style as you see fit. It has no labels:
+Drag and drop `maritime-boundary.geojson` into the map window, style as you see fit. It has no labels:
 
 ![P stations](kph-positions-qgis-images/added-marineboundary.jpg)
 
@@ -107,7 +109,7 @@ Display labels if you want to:
 
 ### It is still an ugly map...
 
-yes, land masses are just weird white blobs. Natural Earth polygons can help - so we will add some. Press ctrl+shift+v to open the 'add vector layer' dialog and navigate to where we have the data (on the ship, likely in `fjelles\QGISdata\naturalearth`) and select the file ending in `.shp`:
+yes, land masses are just weird white blobs (or in the Natural Earth image, flat blue regions). Natural Earth polygons can help - so we will add some. Press ctrl+shift+v to open the 'add vector layer' dialog and navigate to where we have the data (on the ship, likely in `fjelles\QGISdata\naturalearth`) and select the file ending in `.shp`:
 
 ![get just the shp](kph-positions-qgis-images/natural-earth-shapefile.jpg)
 
